@@ -1,0 +1,36 @@
+a
+{
+	color: #D1D4E7;
+	text-decoration: none;
+}
+
+ul.hr {
+	margin: auto; /* Обнуляем значение отступов */
+	width: 80%;
+	text-align: center;
+}
+
+ul.hr li {
+	height: 62px;
+	display: inline; /* Отображать как строчный элемент */
+	padding: 22px 10px; /* Поля вокруг текста */
+	width: 200px;
+	margin: auto;
+}
+
+#search {
+	padding: 12px 50px 12px 20px;
+	width: 300px;
+}
+
+#menu {
+	background-color: #00334d;
+	color: #D1D4E7;
+	width: 100%;
+	font-size: 15px;
+	margin-bottom:20px;
+}
+
+#menu li:hover {
+	background-color: #0077b3;
+}

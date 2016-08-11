@@ -1,0 +1,171 @@
+body {
+	background-color: #D1D4E7;
+	color: #005A85;
+}
+
+* {
+	font-size: 15px;
+	margin: 0;
+}
+
+.form_box {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 50%;
+	background-color: #004769;
+	padding: 20px;
+	color: #D1D6E7;
+}
+
+form table {
+	width: 100%;
+	color: white;
+}
+
+button, input[type=submit], input[type=reset] {
+	background-color: #002133;
+	color: white;
+	border-width: 0;
+	margin: 10px 10px 0 0;
+}
+
+button:hover, input[type=submit]:hover, input[type=reset]:hover {
+	background-color: #0070A6;
+	color: #002133;
+}
+
+fieldset {
+	background-color: white;
+	color: #004769;
+	border-width: 0;
+	padding: 20px;
+}
+
+input[type=file] {
+	background-color: #002133;
+	color: white;
+	border-width: 0;
+}
+
+button, input[type=text], input[type=password], input[type=submit],
+	input[type=reset] {
+	padding: 12px 20px;
+	box-sizing: border-box;
+}
+
+input[type=submit]:disabled {
+	background-color: #D1D4E7;
+	color: white;
+	border: solid 1px black;
+}
+
+input[type=text].error {
+	color: red;
+	border: 2px solid red;
+}
+
+.valid {
+	background: #dfd; /* Зеленый цвет фона */
+}
+
+input[type=text], input[type=password] {
+	margin: 8px 0;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	background-color: #e6f7ff;
+	color: #004769;
+}
+
+h1 {
+	font-size: 200%;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+h2 {
+	font-size: 150%;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.content {
+	margin: 20px auto 20px auto; /* Обнуляем значение отступов */
+	width: 85%;
+}
+
+table.table_main {
+	table-layout: fixed;
+	margin: 5px auto 5px auto; /* Обнуляем значение отступов */
+	width: 85%;
+}
+
+table.table_main td {
+	text-align: left;
+	width: 50%;
+	padding: 10px;
+	vertical-align: top;
+}
+
+table.table_main th {
+	font-size: 180%;
+}
+
+.text_card {
+	word-wrap: break-word;
+	width: 90%;
+	padding: 10px;
+	margin: 10px;
+}
+
+.poll_element {
+	background-color: white;
+	box-shadow: 3px 3px 10px 1px #005A85;
+}
+
+.img_container {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 80%;
+	max-height: 300px;
+	overflow: hidden;
+}
+
+.question {
+	overflow: hidden;
+	word-wrap: break-word;
+	text-align: justify;
+	max-height: 3.6em;
+	line-height: 1.8em;
+}
+
+.text_card .question{
+	color: #005A85;
+}
+
+.poll_element  img {
+	width: 100%;
+}
+
+.question_metadata {
+	background-color: #0070A6;
+	color: #D1D6E7;
+	text-align: center;
+	border-style: solid;
+	border-width: 0.5px;
+	border-color: #0077b3;
+	margin-bottom: 10px;
+	padding: 3px;
+	overflow: hidden;
+}
+
+.question_metadata p:last-of-type {
+	float: right;
+}
+
+.question_metadata p:first-of-type {
+	float: left;
+}

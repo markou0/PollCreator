@@ -1,0 +1,43 @@
+input[type=text].question {
+	word-break: break-word;
+}
+
+fieldset button {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-size: smaller;
+	text-decoration: underline;
+	background-color: inherit;
+	color: grey;
+}
+
+
+/*	form input[type="file"] {
+		display: none;
+	}
+	*/
+.answer_container {
+	display: inline-block;
+	width: 100%;
+	float: none
+}
+
+#poll_create_form img {
+	margin: 0 5px 0 0;
+	height: 30px;
+}
+
+input[type=file] {
+	position: relative;
+	bottom: 10px;
+}
+
+/* .error
+{
+	background-color: red;
+	border:2px solid red;
+	
+} */
+
+

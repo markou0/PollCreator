@@ -1,0 +1,31 @@
+.result_content
+{
+	width:100%;
+	background-color:white;
+	padding: 10px;
+	margin: 10px;
+	box-shadow:3px 3px 10px 1px #005A85;
+	border-radius:0px;	
+}
+
+div.scale{
+	background-color:#80ff80; 
+	padding:10px 0;
+}
+
+.result_content tr td:nth-child(1){
+	width:30%;
+}
+
+.result_content tr td:nth-child(2){
+	width:55%; 
+	text-align:center; 
+	vertical-align:middle;
+}
+
+.result_content tr td:nth-child(3){
+	width:15%;
+	vertical-align:middle;
+	overflow: hidden;
+	text-align: left;	
+}

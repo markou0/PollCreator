@@ -1,0 +1,51 @@
+* {
+	font-size: 30px;
+	color: #D1D6E7;
+}
+
+h1, h2, h1 a, h2 a {
+	color: black;
+	font-size: inherit;
+	margin-top: 50px;
+	color: black;
+}
+
+h1 a, h2 a {
+	text-decoration: underline;
+}
+
+/* #poll_form *{
+	font-size: 18px;
+	padding: 12px 20px;
+	background-color: #01A2F0;
+	color: #D1D6E7;
+	width:10%;
+} */
+.question, .answer {
+	padding: 12px 20px;
+	margin: 8px auto;
+}
+
+.question {
+	background-color: #004769;
+	font-size: larger;
+	color: #D1D6E7;
+	font-size: 25px;
+}
+
+.answer {
+	background-color: #0070A6;
+	word-wrap: break-word;
+	color: #D1D6E7;
+	font-size: 20px;
+}
+
+answer:hover {
+	background-color: #002133;
+	color: white;
+}
+
+.content form {
+	width: 60%;
+	margin: auto;
+}
