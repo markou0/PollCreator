@@ -27,7 +27,6 @@ CREATE  TABLE users (
   username VARCHAR(45) UNIQUE NOT NULL ,
   password VARCHAR(60) NOT NULL ,
   enabled SMALLINT NOT NULL DEFAULT 1 ,
-  picked_questions INTEGER[] ,
   avatar CHARACTER VARYING,
   PRIMARY KEY (username));
 
