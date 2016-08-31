@@ -54,7 +54,7 @@ CREATE TABLE picked_polls (
 
 ALTER TABLE user_roles ADD CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES users (username)ON DELETE CASCADE;
 
-ALTER TABLE questions ADD CONSTRAINT fk_questions FOREIGN KEY (username) REFERENCES users(username) ON DELETE SET NULL;
+ALTER TABLE questions ADD CONSTRAINT fk_questions FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE;
 
 ALTER TABLE answers ADD CONSTRAINT fk_answers FOREIGN KEY (id_question) REFERENCES questions(id_question) ON DELETE CASCADE;
 
