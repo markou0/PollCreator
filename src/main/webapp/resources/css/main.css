@@ -196,6 +196,6 @@ td .text_card{
 	padding:6px;
 }
 
-.text_card a:hover{
+.question_metadata a:hover{
 	text-decoration: underline;
 }

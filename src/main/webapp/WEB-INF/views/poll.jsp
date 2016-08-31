@@ -67,14 +67,24 @@
 			</c:when>
 			<c:when test="${voteDenied}">
 				<h1>
-					Your voice can`t be accepted</br>You have already took this poll! <a
-						href='<c:url value ="/poll/${pollId}/results"></c:url>'>See
+					Your voice can`t be accepted<br>You have already took this
+					poll! <a href='<c:url value ="/poll/${pollId}/results"></c:url>'>See
 						results of poll</a>
 				</h1>
 			</c:when>
 			<c:otherwise>
 				<form:form action="poll/${question.id}/submit_poll" method="post"
 					modelAttribute="answer" id="poll_from">
+					<div class="question_metadata">
+						<p>
+							<a href="user/${question.userName}">${question.userName}</a>
+						</p>
+						voted:
+						<c:out value="${question.totalVotes}" />
+						<p>
+							<c:out value="${question.created}" />
+						</p>
+					</div>
 					<div class="question">${question.question}</div>
 					<c:forEach var="answer" items="${question.answers}"
 						varStatus="status">
@@ -91,7 +101,7 @@
 					<form:input type="text" cssClass="answer" path="answer"
 						id="other_text" placeholder="Type your alternative answer here"
 						onblur="validOtherChoise()" hidden="true" />
-					<input type="submit" id="submit" value="vote" disabled="disabled" />
+					<input type="submit" id="submit" value="Vote" disabled="disabled" />
 				</form:form>
 			</c:otherwise>
 		</c:choose>

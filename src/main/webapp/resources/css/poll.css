@@ -40,6 +40,9 @@ h1 a, h2 a {
 	font-size: 20px;
 }
 
+.question_metadata a, .question_metadata p, .question_metadata{
+	font-size: 20px;
+} 
 answer:hover {
 	background-color: #002133;
 	color: white;
