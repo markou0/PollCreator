@@ -68,7 +68,7 @@
 			<c:when test="${voteDenied}">
 				<h1>
 					Your voice can`t be accepted</br>You have already took this poll! <a
-						href='<c:url value ="/poll/${pollId}/poll_results"></c:url>'>See
+						href='<c:url value ="/poll/${pollId}/results"></c:url>'>See
 						results of poll</a>
 				</h1>
 			</c:when>

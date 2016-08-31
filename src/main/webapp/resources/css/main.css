@@ -23,14 +23,19 @@ form table {
 	color: white;
 }
 
-button, input[type=submit], input[type=reset] {
+button, input[type=button], input[type=submit], input[type=reset] {
 	background-color: #002133;
 	color: white;
 	border-width: 0;
 	margin: 10px 10px 0 0;
 }
 
-button:hover, input[type=submit]:hover, input[type=reset]:hover {
+input[type=reset] {
+	margin-right: 0;
+}
+
+button:hover, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover
+	{
 	background-color: #0070A6;
 	color: #002133;
 }
@@ -48,8 +53,8 @@ input[type=file] {
 	border-width: 0;
 }
 
-button, input[type=text], input[type=password], input[type=submit],
-	input[type=reset] {
+button, input[type=button], input[type=text], input[type=password],
+	input[type=submit], input[type=reset] {
 	padding: 12px 20px;
 	box-sizing: border-box;
 }
@@ -92,13 +97,15 @@ h2 {
 }
 
 .content {
-	margin: 20px auto 20px auto; /* Обнуляем значение отступов */
+	margin: 20px auto 20px auto;
+	/* Обнуляем значение отступов */
 	width: 85%;
 }
 
 table.table_main {
 	table-layout: fixed;
-	margin: 5px auto 5px auto; /* Обнуляем значение отступов */
+	margin: 5px auto 5px auto;
+	/* Обнуляем значение отступов */
 	width: 85%;
 }
 
@@ -115,10 +122,18 @@ table.table_main th {
 
 .text_card {
 	word-wrap: break-word;
-	width: 90%;
 	padding: 10px;
 	margin: 10px;
+	margin-left: 5%;
+	width: 40%;
+	display: inline-block;
 }
+
+td .text_card{
+	margin: 10px;
+	width: 90%;
+	display: block;
+} 
 
 .poll_element {
 	background-color: white;
@@ -142,7 +157,7 @@ table.table_main th {
 	line-height: 1.8em;
 }
 
-.text_card .question{
+.text_card .question {
 	color: #005A85;
 }
 
@@ -168,4 +183,19 @@ table.table_main th {
 
 .question_metadata p:first-of-type {
 	float: left;
+}
+
+.text_card input[type=button] {
+	display: none;
+	margin: auto;
+	
+}
+
+.text_card:hover input[type=button] {
+	display: block;
+	padding:6px;
+}
+
+.text_card a:hover{
+	text-decoration: underline;
 }

@@ -10,11 +10,17 @@ ul.hr {
 	text-align: center;
 }
 
-ul.hr li {
+ul.hr a li {
 	height: 62px;
 	display: inline; /* Отображать как строчный элемент */
 	padding: 22px 10px; /* Поля вокруг текста */
 	width: 200px;
+	margin: auto;
+}
+
+ul.hr a {
+	display: inline-block; /* Отображать как строчный элемент */
+	padding: 22px 0;
 	margin: auto;
 }
 

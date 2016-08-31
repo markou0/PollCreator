@@ -15,8 +15,12 @@
 <body>
 	<%@ include file="top_menu.jsp"%>
 	<div class="content">
-		<h2>Welcome to personal cabinet: <span style="font-size:150%;color: #00334d">${pageContext.request.userPrincipal.name}</span><h2>
-		<a href="${create_poll}"><button>Create new Poll</button></a>
+		<h2>
+			Welcome to personal cabinet: <span
+				style="font-size: 150%; color: #00334d">${pageContext.request.userPrincipal.name}</span><br />
+			<a href="${create_poll}" style="text-align: center;"><button>Create
+					new Poll</button></a>
+		</h2>
 		<table class="table_main">
 			<tr>
 				<th>User questions</th>
@@ -25,63 +29,11 @@
 			<tr>
 				<td><c:forEach var="question" items="${userQuestions}"
 						varStatus="status">
-						<a href="<c:out value="poll/${question.id}"/>">
-						<div class="text_card poll_element">
-							<div class="question_metadata">
-								<p>
-									<c:if test="${not empty question.userName}">
-										<c:out value="${question.userName}" />
-									</c:if>
-									<c:if test="${empty question.userName}">
-										anonim
-									</c:if>
-								</p>
-								voted:
-								<c:out value="${question.totalVotes}" />
-								<p>
-									<c:out value="${question.created}" />
-								</p>
-							</div>
-							<c:if test="${not empty question.image}">
-								<div class="img_container">
-									<img src="<c:out value="${question.image}" />" />
-								</div>
-							</c:if>
-							<div class="question">
-								<c:out value="${question.question}" />
-							</div>
-						</div>
-						</a>
+						<%@ include file="text_card_poll_element.jsp"%>
 					</c:forEach></td>
-								<td><c:forEach var="question" items="${pickedQuestions}"
+				<td><c:forEach var="question" items="${pickedQuestions}"
 						varStatus="status">
-						<a href="<c:out value="poll/${question.id}"/>">
-						<div class="text_card poll_element">
-							<div class="question_metadata">
-								<p>
-									<c:if test="${not empty question.userName}">
-										<c:out value="${question.userName}" />
-									</c:if>
-									<c:if test="${empty question.userName}">
-										anonim
-									</c:if>
-								</p>
-								voted:
-								<c:out value="${question.totalVotes}" />
-								<p>
-									<c:out value="${question.created}" />
-								</p>
-							</div>
-							<c:if test="${not empty question.image}">
-								<div class="img_container">
-									<img src="<c:out value="${question.image}" />" />
-								</div>
-							</c:if>
-							<div class="question">
-								<c:out value="${question.question}" />
-							</div>
-						</div>
-						</a>
+						<%@ include file="text_card_poll_element.jsp"%>
 					</c:forEach></td>
 			</tr>
 		</table>

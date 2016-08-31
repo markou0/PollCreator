@@ -22,63 +22,11 @@
 			<tr>
 				<td><c:forEach var="question" items="${popularQuestions}"
 						varStatus="status">
-						<a href="<c:out value="poll/${question.id}"/>">
-						<div class="text_card poll_element">
-							<div class="question_metadata">
-								<p>
-									<c:if test="${not empty question.userName}">
-										<c:out value="${question.userName}" />
-									</c:if>
-									<c:if test="${empty question.userName}">
-										anonim
-									</c:if>
-								</p>
-								voted:
-								<c:out value="${question.totalVotes}" />
-								<p>
-									<c:out value="${question.created}" />
-								</p>
-							</div>
-							<c:if test="${not empty question.image}">
-								<div class="img_container">
-									<img src="<c:out value="${question.image}" />" />
-								</div>
-							</c:if>
-							<div class="question">
-								<c:out value="${question.question}" />
-							</div>
-						</div>
-						</a>
+						<%@ include file="text_card_poll_element.jsp"%>
 					</c:forEach></td>
-								<td><c:forEach var="question" items="${newestQuestions}"
+				<td><c:forEach var="question" items="${newestQuestions}"
 						varStatus="status">
-						<a href="<c:out value="poll/${question.id}"/>">
-						<div class="text_card poll_element">
-							<div class="question_metadata">
-								<p>
-									<c:if test="${not empty question.userName}">
-										<c:out value="${question.userName}" />
-									</c:if>
-									<c:if test="${empty question.userName}">
-										anonim
-									</c:if>
-								</p>
-								voted:
-								<c:out value="${question.totalVotes}" />
-								<p>
-									<c:out value="${question.created}" />
-								</p>
-							</div>
-							<c:if test="${not empty question.image}">
-								<div class="img_container">
-									<img src="<c:out value="${question.image}" />" />
-								</div>
-							</c:if>
-							<div class="question">
-								<c:out value="${question.question}" />
-							</div>
-						</div>
-						</a>
+						<%@ include file="text_card_poll_element.jsp"%>
 					</c:forEach></td>
 			</tr>
 		</table>

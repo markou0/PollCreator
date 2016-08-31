@@ -44,7 +44,7 @@
 	<ul class="hr">
 		<a href="${main}"><li><img
 				src="${images}/poll_creator_logo.png" height="15em"></li></a>
-		<sec:authorize access="hasRole('ROLE_ADMIN') OR hasRole('ROLE_USER')">
+		<sec:authorize access="isAuthenticated()">
 			<a href="${personal_cabinet}"><li id="personal_cabinet">Personal
 					Cabinet</li></a>
 			<a href="javascript:formSubmit()"><li id="logout">Logout</li></a>
@@ -52,10 +52,10 @@
 		<c:if test="${pageContext.request.userPrincipal.name == null}">
 			<a href="${login}"><li id="signIn">Sign In</li></a>
 		</c:if>
-		<li><input type="text" name="search" id="search"
+		<%-- <li><input type="text" name="search" id="search"
 			placeholder="Search poll/vote by keywords"></li>
 		<a href="${search}"><img src="${images}/search.svg"
 			width='35px' height='35px'
-			style="position: relative; top: 13px; right: 55px;" /></a>
+			style="position: relative; top: 13px; right: 55px;" /></a> --%>
 	</ul>
 </div>

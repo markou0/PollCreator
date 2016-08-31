@@ -1,0 +1,14 @@
+.content form {
+	width: 60%;
+	margin: auto;
+}
+
+#deleteUserButton {
+	display: block;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.b-popup-content h2 {
+	margin-top: 50px;
+}

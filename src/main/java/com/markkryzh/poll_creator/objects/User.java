@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class User {
-	final String ROLE_USER = "ROLE_USER";
-	final String ROLE_ADMIN = "USER_ADMIN";
+	public static final String ROLE_USER = "ROLE_USER";
+	public static final String ROLE_ADMIN = "ROLE_ADMIN";
 	private int id;
 	@NotNull
 	@Size(min = 3, max = 45, message = "username length must be between 3 and 45 symbols")

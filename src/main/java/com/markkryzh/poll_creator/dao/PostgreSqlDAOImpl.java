@@ -47,8 +47,14 @@ public class PostgreSqlDAOImpl implements PostgreSqlDAO {
 			Question question = new Question();
 			question.setQuestion(rs.getString("question"));
 			question.setId(rs.getInt("id_question"));
-			question.setUserName(rs.getString("username"));
-			question.setIsAnonimius(rs.getBoolean("is_anonimius"));
+			boolean isAnomius = rs.getBoolean("is_anonimius");
+			question.setIsAnonimius(isAnomius);
+			if (isAnomius) {
+				question.setUserName("Anonym");
+			} else
+				question.setUserName(rs.getString("username"));
+			if (question.getUserName().isEmpty())
+				question.setUserName("User Deleted");
 			question.setIsPublic(rs.getBoolean("is_public"));
 			question.setCreated(rs.getDate("created"));
 			question.setImage(rs.getString("image"));
@@ -96,7 +102,7 @@ public class PostgreSqlDAOImpl implements PostgreSqlDAO {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("id_answer", answerId);
 
-		JdbcTemplate.execute(sql, params, null);
+		JdbcTemplate.update(sql, params);
 
 	}
 
@@ -107,22 +113,22 @@ public class PostgreSqlDAOImpl implements PostgreSqlDAO {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("id_question", questionId);
 
-		JdbcTemplate.execute(sql, params, null);
+		JdbcTemplate.update(sql, params);
 	}
 
 	@Override
 	public void deleteUser(String username) {
-		String sql = "DELETE FROM users WHERE users = :username ";
+		String sql = "DELETE FROM users WHERE username = :username";
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("username", username);
 
-		JdbcTemplate.execute(sql, params, null);
+		JdbcTemplate.update(sql, params);
 	}
 
 	@Override
 	public List<Answer> getAnswers(int questionId) {
-		String sql = "SELECT * FROM answers WHERE id_question = :id_question";
+		String sql = "SELECT * FROM answers WHERE id_question = :id_question ORDER BY id_answer";
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("id_question", questionId);
@@ -140,8 +146,7 @@ public class PostgreSqlDAOImpl implements PostgreSqlDAO {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("id_question", questionId);
 
-		return JdbcTemplate
-				.queryForObject(sql, params, new QuestionRowMapper());
+		return JdbcTemplate.queryForObject(sql, params, new QuestionRowMapper());
 	}
 
 	/*
@@ -249,7 +254,7 @@ public class PostgreSqlDAOImpl implements PostgreSqlDAO {
 	@Override
 	public void insertUser(User user) {
 
-		String sqlInsertUser = "insert into users VALUES (:username, :password, :enabled, null, :avatar)";
+		String sqlInsertUser = "insert into users VALUES (:username, :password, :enabled, :avatar)";
 		String sqlInserUserRole = "insert into user_roles VALUES ( default, :username, :role)";
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
@@ -307,8 +312,7 @@ public class PostgreSqlDAOImpl implements PostgreSqlDAO {
 	@Override
 	public boolean incrementQuestionVotes(String username, int id_answer) {
 		String sql = "SELECT votes_increment( ?, ?)";
-		return JdbcTemplate.getJdbcOperations().queryForObject(sql,
-				Boolean.class, username, id_answer);
+		return JdbcTemplate.getJdbcOperations().queryForObject(sql, Boolean.class, username, id_answer);
 	}
 
 	@Override
@@ -353,29 +357,25 @@ public class PostgreSqlDAOImpl implements PostgreSqlDAO {
 	@Override
 	public boolean containsUser(String username) {
 		String sql = "SELECT EXISTS(SELECT * FROM users where username = ?)";
-		return JdbcTemplate.getJdbcOperations().queryForObject(sql,
-				Boolean.class, username);
+		return JdbcTemplate.getJdbcOperations().queryForObject(sql, Boolean.class, username);
 	}
 
 	@Override
 	public boolean containsQuestion(int questionId) {
 		String sql = "SELECT EXISTS(SELECT * FROM questions where id_question = ?)";
-		return JdbcTemplate.getJdbcOperations().queryForObject(sql,
-				Boolean.class, questionId);
+		return JdbcTemplate.getJdbcOperations().queryForObject(sql, Boolean.class, questionId);
 	}
 
 	@Override
 	public boolean containsAnswer(int answerId) {
 		String sql = "SELECT EXISTS(SELECT * FROM answers where id_answer = ?)";
-		return JdbcTemplate.getJdbcOperations().queryForObject(sql,
-				Boolean.class, answerId);
+		return JdbcTemplate.getJdbcOperations().queryForObject(sql, Boolean.class, answerId);
 	}
 
 	@Override
 	public boolean hasUserVoted(String username, int id_question) {
 		String sql = "SELECT EXISTS (SELECT * FROM picked_polls WHERE username LIKE ? AND id_question = ?)";
-		return JdbcTemplate.getJdbcOperations().queryForObject(sql,
-				Boolean.class, username, id_question);
+		return JdbcTemplate.getJdbcOperations().queryForObject(sql, Boolean.class, username, id_question);
 	}
 
 	@Override
